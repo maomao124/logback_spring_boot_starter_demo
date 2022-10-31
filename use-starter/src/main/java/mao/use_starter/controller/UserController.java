@@ -27,6 +27,14 @@ public class UserController
     @GetMapping(value = "page/{pageNum}/{pageSize}")
     public String findByPage(@PathVariable Integer pageNum, @PathVariable Integer pageSize)
     {
+        try
+        {
+            Thread.sleep(300);
+        }
+        catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
         return "OK";
     }
 }
