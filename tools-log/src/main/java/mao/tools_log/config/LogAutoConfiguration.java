@@ -18,12 +18,16 @@ import org.springframework.scheduling.annotation.EnableAsync;
  * Date(创建日期)： 2022/10/31
  * Time(创建时间)： 22:29
  * Version(版本): 1.0
- * Description(描述)： 无
+ * Description(描述)：
+ * <p>
+ * 启动条件：
+ * 1，存在web环境
+ * 2，配置文件中log.enabled=true
+ * 3，配置文件中不存在：log.enabled 值
  */
 
 @EnableAsync
 @Configuration
-
 @ConditionalOnWebApplication
 @ConditionalOnProperty(name = "log.enabled", havingValue = "true", matchIfMissing = true)
 public class LogAutoConfiguration
