@@ -12,6 +12,7 @@ import cn.hutool.core.util.StrUtil;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Method;
 
@@ -26,7 +27,7 @@ import java.lang.reflect.Method;
  * Date(创建日期)： 2022/10/31
  * Time(创建时间)： 22:17
  * Version(版本): 1.0
- * Description(描述)： 无
+ * Description(描述)： 解析ip地址的工具类
  */
 
 public class AddressUtil
@@ -38,50 +39,64 @@ public class AddressUtil
     static DbConfig config = null;
     static DbSearcher searcher = null;
 
+
     /**
      * 根据ip查询地址
      *
-     * @param ip
-     * @return
+     * @param ip ip地址
+     * @return {@link String}
      */
-//    public static String getCityInfo(String ip) {
-//        DbSearcher searcher = null;
-//        try {
-//            String dbPath = AddressUtil.class.getResource("/ip2region/ip2region.db").getPath();
-//            File file = new File(dbPath);
-//            if (!file.exists()) {
-//                String tmpDir = System.getProperties().getProperty(JAVA_TEMP_DIR);
-//                dbPath = tmpDir + "ip2region.db";
-//                file = new File(dbPath);
-//                String classPath = "classpath:ip2region/ip2region.db";
-//                InputStream resourceAsStream = ResourceUtil.getStreamSafe(classPath);
-//                if (resourceAsStream != null) {
-//                    FileUtils.copyInputStreamToFile(resourceAsStream, file);
-//                }
-//            }
-//            DbConfig config = new DbConfig();
-//            searcher = new DbSearcher(config, file.getPath());
-//            Method method = searcher.getClass().getMethod("btreeSearch", String.class);
-//            if (!Util.isIpAddress(ip)) {
-//                log.error("Error: Invalid ip address");
-//            }
-//            DataBlock dataBlock = (DataBlock) method.invoke(searcher, ip);
-//            return dataBlock.getRegion();
-//        } catch (Exception e) {
-//            log.error("获取地址信息异常，{}", e);
-//            return StrUtil.EMPTY;
-//        } finally {
-//            if (searcher != null) {
-//                try {
-//                    searcher.close();
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        }
-//    }
+    /*public static String getCityInfo(String ip)
+    {
+        DbSearcher searcher = null;
+        try
+        {
+            String dbPath = AddressUtil.class.getResource("/ip2region/ip2region.db").getPath();
+            File file = new File(dbPath);
+            if (!file.exists())
+            {
+                String tmpDir = System.getProperties().getProperty(JAVA_TEMP_DIR);
+                dbPath = tmpDir + "ip2region.db";
+                file = new File(dbPath);
+                String classPath = "classpath:ip2region/ip2region.db";
+                InputStream resourceAsStream = ResourceUtil.getStreamSafe(classPath);
+                if (resourceAsStream != null)
+                {
+                    FileUtils.copyInputStreamToFile(resourceAsStream, file);
+                }
+            }
+            DbConfig config = new DbConfig();
+            searcher = new DbSearcher(config, file.getPath());
+            Method method = searcher.getClass().getMethod("btreeSearch", String.class);
+            if (!Util.isIpAddress(ip))
+            {
+                log.error("Error: Invalid ip address");
+            }
+            DataBlock dataBlock = (DataBlock) method.invoke(searcher, ip);
+            return dataBlock.getRegion();
+        }
+        catch (Exception e)
+        {
+            log.error("获取地址信息异常，", e);
+            return StrUtil.EMPTY;
+        }
+        finally
+        {
+            if (searcher != null)
+            {
+                try
+                {
+                    searcher.close();
+                }
+                catch (IOException e)
+                {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }*/
 
-    /**
+    /*
      * 初始化IP库
      */
     static
@@ -167,9 +182,24 @@ public class AddressUtil
         }
         catch (Exception e)
         {
-            log.error("error:{}", e);
+            log.error("error:", e);
         }
         return StrUtil.EMPTY;
     }
 
+    public static void main(String[] args)
+    {
+        System.out.println(AddressUtil.getRegion("113.222.142.84"));
+        System.out.println(AddressUtil.getRegion("113.221.141.84"));
+        System.out.println(AddressUtil.getRegion("113.192.142.84"));
+        System.out.println(AddressUtil.getRegion("113.224.142.84"));
+        System.out.println(AddressUtil.getRegion("114.222.142.84"));
+        System.out.println(AddressUtil.getRegion("115.222.142.84"));
+        System.out.println(AddressUtil.getRegion("117.222.142.84"));
+        System.out.println(AddressUtil.getRegion("119.222.142.84"));
+        System.out.println(AddressUtil.getRegion("13.222.142.84"));
+        System.out.println(AddressUtil.getRegion("14.222.142.84"));
+        System.out.println(AddressUtil.getRegion("15.222.142.84"));
+        System.out.println(AddressUtil.getRegion("16.222.142.84"));
+    }
 }

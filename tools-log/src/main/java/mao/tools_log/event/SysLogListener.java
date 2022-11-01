@@ -22,7 +22,7 @@ import java.util.function.Consumer;
 
 public class SysLogListener
 {
-    private Consumer<OptLogDTO> consumer;
+    private final Consumer<OptLogDTO> consumer;
 
     public SysLogListener(Consumer<OptLogDTO> consumer)
     {

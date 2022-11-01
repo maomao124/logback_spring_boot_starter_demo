@@ -23,12 +23,12 @@ public class NumberHelper
 
     public static Long longValueOfNil(String value)
     {
-        return valueOfDef(value, (val) -> Long.valueOf(val), null);
+        return valueOfDef(value, Long::valueOf, null);
     }
 
     public static Long longValueOf0(String value)
     {
-        return valueOfDef(value, (val) -> Long.valueOf(val), 0L);
+        return valueOfDef(value, Long::valueOf, 0L);
     }
 
     public static Long longValueOfNil(Object value)
@@ -48,7 +48,7 @@ public class NumberHelper
 
     public static Integer intValueOfNil(String value)
     {
-        return valueOfDef(value, (val) -> Integer.valueOf(val), null);
+        return valueOfDef(value, Integer::valueOf, null);
     }
 
     public static Integer intValueOf0(String value)
@@ -58,7 +58,7 @@ public class NumberHelper
 
     public static Integer intValueOf(String value, Integer def)
     {
-        return valueOfDef(value, (val) -> Integer.valueOf(val), def);
+        return valueOfDef(value, Integer::valueOf, def);
     }
 
     public static Integer intValueOfNil(Object value)

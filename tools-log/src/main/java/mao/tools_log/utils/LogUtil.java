@@ -25,7 +25,7 @@ public class LogUtil
     /***
      * 获取操作信息
      * @param point JoinPoint对象
-     * @return
+     * @return String
      */
     public static String getControllerMethodDescription(JoinPoint point)
     {

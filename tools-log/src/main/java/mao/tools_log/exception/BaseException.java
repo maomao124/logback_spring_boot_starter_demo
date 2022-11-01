@@ -14,14 +14,14 @@ public interface BaseException
     /**
      * 返回异常信息
      *
-     * @return
+     * @return String
      */
     String getMessage();
 
     /**
      * 返回异常编码
      *
-     * @return
+     * @return int
      */
     int getCode();
 
