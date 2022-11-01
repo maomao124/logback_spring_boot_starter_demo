@@ -24,6 +24,11 @@
 
     </dependencies>
 
+    <modules>
+        <module>tools-log</module>
+        <module>use-starter</module>
+    </modules>
+
     <dependencyManagement>
         <dependencies>
 
