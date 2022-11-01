@@ -13,17 +13,17 @@
      -->
 
     <!--开发环境-->
-<!--    <springProfile name="dev">-->
-<!--        <logger name="包名" additivity="false" level="debug">-->
-<!--            <appender-ref ref="LOG_CONSOLE"/>-->
-<!--        </logger>-->
-<!--    </springProfile>-->
-<!--    &lt;!&ndash;生产环境&ndash;&gt;-->
-<!--    <springProfile name="pro">-->
-<!--        <logger name="包名" additivity="false" level="info">-->
-<!--            <appender-ref ref="LOG_FILE"/>-->
-<!--        </logger>-->
-<!--    </springProfile>-->
+    <springProfile name="dev">
+        <logger name="mao" additivity="false" level="debug">
+            <appender-ref ref="LOG_CONSOLE"/>
+        </logger>
+    </springProfile>
+    <!--生产环境-->
+    <springProfile name="pro">
+        <logger name="mao" additivity="false" level="info">
+            <appender-ref ref="LOG_FILE"/>
+        </logger>
+    </springProfile>
 
     <!--
     root节点是必选节点，用来指定最基础的日志输出级别，只有一个level属性

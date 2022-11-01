@@ -37,4 +37,11 @@ public class UserController
         }
         return "OK";
     }
+
+    @SysLog("获取使用用户的信息")
+    @GetMapping()
+    public String getAll()
+    {
+        throw new RuntimeException("不允许使用");
+    }
 }
