@@ -167,7 +167,7 @@ public class SysLogAspect
     /**
      * 返回通知
      *
-     * @param ret
+     * @param ret 对象R
      * @throws Throwable
      */
     @AfterReturning(returning = "ret", pointcut = "sysLogAspect()")

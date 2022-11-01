@@ -104,8 +104,8 @@ public class R<T>
     /**
      * 请求失败消息
      *
-     * @param msg
-     * @return
+     * @param msg 消息
+     * @return RPC调用结果
      */
     public static <E> R<E> fail(int code, String msg)
     {
@@ -194,7 +194,7 @@ public class R<T>
     /**
      * 逻辑处理是否失败
      *
-     * @return
+     * @return 是否失败
      */
     public Boolean getIsError()
     {

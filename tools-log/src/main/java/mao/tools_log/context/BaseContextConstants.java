@@ -2,9 +2,9 @@ package mao.tools_log.context;
 
 /**
  * 常量工具类
- *
  */
-public class BaseContextConstants {
+public class BaseContextConstants
+{
     /**
      *
      */
